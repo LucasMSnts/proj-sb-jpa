@@ -26,7 +26,7 @@ Obs.: Utiliza JAVA SE Development Kit 11
 		senha: 358f443aafe452eca4c58fbc15d02e50b08130c7aaea3aff6c4f59c13f9abb
 		servidor: ec2-23-21-106-266.compute-1.amazonaws.com
 		porta: 5432
-		BD: d7u9ub86cdsu
+		database: d7u9ub86cdsu
     
 - PgAdmin: Servers -> Create -> Server
   - Advanced -> DB rescriction: (database)
