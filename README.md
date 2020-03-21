@@ -33,3 +33,43 @@ Obs.: Utiliza JAVA SE Development Kit 11
     
 - Database -> Query Tool
   - Buscar e executar o script SQL
+  
+  
+### Deploy no Heroku
+
+- Enviar o projeto para deploy no Heroku
+ ```
+   heroku git:remote -a proj-order
+   git remote -v
+```
+
+
+- Setup Heroku app Config Vars
+	- DATABASE_URL
+	- JWT_EXPIRATION
+	- JWT_SECRET
+	
+	
+- Criar: application-prod.properties
+```
+	spring.datasource.url=${DATABASE_URL}
+
+	spring.jpa.hibernate.ddl-auto=none
+	spring.jpa.show-sql=false
+	spring.jpa.properties.hibernate.format_sql=false
+
+	jwt.secret=${JWT_SECRET}
+	jwt.expiration=${JWT_EXPIRATION}
+```
+
+- Atualizar application.properties: ```spring.profiles.active=prod```
+
+- Criar o arquivo na raiz: system.properties
+	- Adicionar o codigo no arquivo criado:  ```java.runtime.version=11```
+	
+- Enviar para o Heroku
+```
+	git add .
+	git commit -m "Deploy app to Heroku"
+	git push heroku master
+```
